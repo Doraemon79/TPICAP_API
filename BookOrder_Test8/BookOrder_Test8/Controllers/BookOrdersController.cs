@@ -52,94 +52,94 @@ namespace BookOrder_Test8.Controllers
         }
 
         // GET: api/BookOrders/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<BookOrder>> GetBookOrder(string id)
-        {
-            var bookOrder = await _context.BookOrders.FindAsync(id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<BookOrder>> GetBookOrder(string id)
+        //{
+        //    var bookOrder = await _context.BookOrders.FindAsync(id);
 
-            if (bookOrder == null)
-            {
-                return NotFound();
-            }
+        //    if (bookOrder == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return bookOrder;
-        }
+        //    return bookOrder;
+        //}
 
         // PUT: api/BookOrders/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBookOrder(string id, BookOrder bookOrder)
-        {
-            if (id != bookOrder.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutBookOrder(string id, BookOrder bookOrder)
+        //{
+        //    if (id != bookOrder.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(bookOrder).State = EntityState.Modified;
+        //    _context.Entry(bookOrder).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookOrderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!BookOrderExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/BookOrders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<BookOrder>> PostBookOrder(BookOrder bookOrder)
-        {
-            _context.BookOrders.Add(bookOrder);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (BookOrderExists(bookOrder.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //[HttpPost]
+        //public async Task<ActionResult<BookOrder>> PostBookOrder(BookOrder bookOrder)
+        //{
+        //    _context.BookOrders.Add(bookOrder);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (BookOrderExists(bookOrder.Id))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtAction(nameof(GetBookOrder), new { id = bookOrder.Id }, bookOrder);
-        }
+        //    return CreatedAtAction(nameof(GetBookOrder), new { id = bookOrder.Id }, bookOrder);
+        //}
 
         // DELETE: api/BookOrders/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBookOrder(string id)
-        {
-            var bookOrder = await _context.BookOrders.FindAsync(id);
-            if (bookOrder == null)
-            {
-                return NotFound();
-            }
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteBookOrder(string id)
+        //{
+        //    var bookOrder = await _context.BookOrders.FindAsync(id);
+        //    if (bookOrder == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.BookOrders.Remove(bookOrder);
-            await _context.SaveChangesAsync();
+        //    _context.BookOrders.Remove(bookOrder);
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        private bool BookOrderExists(string id)
-        {
-            return _context.BookOrders.Any(e => e.Id == id);
-        }
+        //private bool BookOrderExists(string id)
+        //{
+        //    return _context.BookOrders.Any(e => e.Id == id);
+        //}
     }
 }

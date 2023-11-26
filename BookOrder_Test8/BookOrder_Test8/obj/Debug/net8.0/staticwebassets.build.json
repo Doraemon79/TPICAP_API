@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Gr4RrJZT4F6E/7sbGW1U+oeiMw+34zKGr0Z5Q9ysKvA=",
+  "Hash": "CK7+EVPYWwFs4WXXn5JfB3ai6SscymxRw/1JWwGhURw=",
   "Source": "BookOrder_Test8",
   "BasePath": "_content/BookOrder_Test8",
   "Mode": "Default",
@@ -9,10 +9,10 @@
   "DiscoveryPatterns": [],
   "Assets": [
     {
-      "Identity": "C:\\Repos\\BookOrder_Test8\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookOrder_Test8.styles.css",
+      "Identity": "C:\\Repos\\TPICAP_API\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookOrder_Test8.styles.css",
       "SourceId": "BookOrder_Test8",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Repos\\BookOrder_Test8\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Repos\\TPICAP_API\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BookOrder_Test8",
       "RelativePath": "BookOrder_Test8.styles.css",
       "AssetKind": "All",
@@ -25,7 +25,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Repos\\BookOrder_Test8\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookOrder_Test8.styles.css"
+      "OriginalItemSpec": "C:\\Repos\\TPICAP_API\\BookOrder_Test8\\BookOrder_Test8\\obj\\Debug\\net8.0\\scopedcss\\bundle\\BookOrder_Test8.styles.css"
     },
     {
       "Identity": "C:\\Users\\ignle\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.0\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",

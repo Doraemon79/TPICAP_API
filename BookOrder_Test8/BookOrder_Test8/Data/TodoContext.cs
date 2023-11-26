@@ -10,6 +10,7 @@ namespace BookOrder_Test8.Data
         {
         }
 
-        public DbSet<BookOrder> BookOrders { get; set; } = null!;
+        //public DbSet<BookOrder> BookOrders { get; set; } ;
+
     }
 }

@@ -5,6 +5,6 @@ namespace BookOrder_Test8.MatchMaker
 {
     public interface IreadJson
     {
-        List<SellOrder> ReadInput();
+        List<BookOrder> ReadInput();
     }
 }

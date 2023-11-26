@@ -9,7 +9,7 @@ namespace BookOrder_Test8.MatchMaker
 {
     public class ReadJson :IreadJson
     {
-        public List<SellOrder> ReadInput()
+        public List<BookOrder> ReadInput()
         {
             //string text = File.ReadAllText(@"./person.json");
             //var order = JsonSerializer.Deserialize<BookOrder>(text);
@@ -22,12 +22,13 @@ namespace BookOrder_Test8.MatchMaker
                 source = JsonSerializer.Deserialize<List<BookOrder>>(json);
             }
 
-            List<SellOrder> destination = source.Select(d => new SellOrder
+            List<BookOrder> destination = source.Select(d => new BookOrder
             {
                 Id = d.Id ,
                 Company = d.Company,
                 Notional = d.Notional,
                 OrderType = d.OrderType,
+                Volume=d.Volume,
                 OrderDateTime= d.OrderDateTime 
             }).ToList();
 

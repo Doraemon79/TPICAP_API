@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IreadJson, ReadJson>();
-builder.Services.AddScoped<IMatchAlgorithms, MatchAlgorithms>();
+builder.Services.AddScoped<ImatchAlgorithms, MatchAlgorithms>();
 
 
 
