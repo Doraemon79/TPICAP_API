@@ -2,9 +2,9 @@
 
 namespace BookOrder_Test8.MatchMaker
 {
-    public interface ImatchAlgorithms
+    public interface IMatchAlgorithms
     {
-        List<BookOrder> PriceTimePriority(List<BookOrder> bookOrders);
+        Task<List<BookOrder>> PriceTimePriority(List<BookOrder> bookOrders);
 
         List<BookOrder> ProRata(List<BookOrder> bookOrders);
     }

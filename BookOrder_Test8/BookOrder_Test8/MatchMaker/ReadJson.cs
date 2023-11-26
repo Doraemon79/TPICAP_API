@@ -7,7 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BookOrder_Test8.MatchMaker
 {
-    public class ReadJson :IreadJson
+    public class ReadJson : IReadJson
     {
         public List<BookOrder> ReadInput()
         {
@@ -29,17 +29,12 @@ namespace BookOrder_Test8.MatchMaker
                 Notional = d.Notional,
                 OrderType = d.OrderType,
                 Volume=d.Volume,
+                MatchState="NoMatch",
                 OrderDateTime= d.OrderDateTime 
             }).ToList();
 
             return destination;
         }
 
-        //public class DataReadyOrder
-        //{
-        //    public string orderId { get; set; }
-        //    public string company { get; set; }
-        //    public double notional { get; set; }
-        //}
     }
 }

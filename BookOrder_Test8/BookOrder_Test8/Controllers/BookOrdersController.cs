@@ -13,10 +13,10 @@ namespace BookOrder_Test8.Controllers
     public class BookOrdersController : ControllerBase
     {
         private readonly TodoContext _context;
-        private readonly IreadJson _readjson;
-        private readonly ImatchAlgorithms _matchAlgorithms;
+        private readonly IReadJson _readjson;
+        private readonly IMatchAlgorithms _matchAlgorithms;
 
-        public BookOrdersController(TodoContext context, IreadJson readJson, ImatchAlgorithms matchAlgorithms)
+        public BookOrdersController(TodoContext context, IReadJson readJson, IMatchAlgorithms matchAlgorithms)
         {
             _context = context;
             _readjson = readJson;
@@ -36,9 +36,9 @@ namespace BookOrder_Test8.Controllers
                 WriteIndented = true
             });
 
-            var tstlist = _readjson.ReadInput();
+            var tstlist =  _readjson.ReadInput();
 
-           var tst= _matchAlgorithms.PriceTimePriority(tstlist);
+           var tst= await  _matchAlgorithms.PriceTimePriority(tstlist);
 
             return new JsonResult(_readjson.ReadInput(), new JsonSerializerOptions
             {

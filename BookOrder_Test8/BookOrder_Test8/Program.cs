@@ -13,8 +13,8 @@ builder.Services.AddDbContext<TodoContext>(opt =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IreadJson, ReadJson>();
-builder.Services.AddScoped<ImatchAlgorithms, MatchAlgorithms>();
+builder.Services.AddScoped<IReadJson, ReadJson>();
+builder.Services.AddScoped<IMatchAlgorithms, MatchAlgorithms>();
 
 
 

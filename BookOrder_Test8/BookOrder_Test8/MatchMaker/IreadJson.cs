@@ -3,7 +3,7 @@ using static BookOrder_Test8.MatchMaker.ReadJson;
 
 namespace BookOrder_Test8.MatchMaker
 {
-    public interface IreadJson
+    public interface IReadJson
     {
         List<BookOrder> ReadInput();
     }

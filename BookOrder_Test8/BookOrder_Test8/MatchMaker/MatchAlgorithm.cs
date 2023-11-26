@@ -2,20 +2,20 @@
 
 namespace BookOrder_Test8.MatchMaker
 {
-    public class MatchAlgorithms : ImatchAlgorithms
+    public class MatchAlgorithms : IMatchAlgorithms
     {
-        public List<BookOrder> PriceTimePriority(List<BookOrder> bookOrders)
+        public async Task<List<BookOrder>> PriceTimePriority(List<BookOrder> bookOrders)
         {
             //select buy and order them by time ascending
 
             List<BookOrder> buyOrders = (List<BookOrder>)bookOrders.Where(x => x.OrderType.Equals("buy")).OrderBy(x => x.OrderDateTime).ToList();
-
+            List<BookOrder> sellOrders = (List<BookOrder>)bookOrders.Where(x => x.OrderType.Equals("sell")).OrderBy(x => x.Notional).ThenBy(x => x.OrderDateTime).ToList();
 
 
             //if buy list not empty
             if (buyOrders.Any())
             {
-                List<BookOrder> sellOrders = (List<BookOrder>)bookOrders.Where(x => x.OrderType.Equals("sell")).OrderBy(x => x.Notional).ThenBy(x => x.OrderDateTime).ToList();
+                 //sellOrders = (List<BookOrder>)bookOrders.Where(x => x.OrderType.Equals("sell")).OrderBy(x => x.Notional).ThenBy(x => x.OrderDateTime).ToList();
                 if (sellOrders.Any())
                 {
                     // foreach element in the buy list do:
@@ -23,34 +23,51 @@ namespace BookOrder_Test8.MatchMaker
                     //foreach (var buy in buyOrders)foreach doesnot allow for changes and I do not know if link reads the list in order
                     for (int i = 0; i <= buyOrders.Count - 1; i++)
                     {
-                        double quant = buyOrders[i].Notional;
                         //brose sellList
                         //foreach(var sale in sellOrders)
                         for (int j = 0; j <= sellOrders.Count - 1; j++)
                         {
                             if (buyOrders[i].Notional >= sellOrders[j].Notional)
                             {
-                                if (sellOrders[j].Volume <= buyOrders[i].Volume)
+                                
+                                if (sellOrders[j].Volume < buyOrders[i].Volume)
                                 {
 
                                     BookOrder tempOrder = buyOrders[i];
                                     tempOrder = buyOrders[i];
                                     tempOrder.Volume -= sellOrders[j].Volume;
+                                    tempOrder.MatchState = "PartialMatch";
                                     buyOrders[i] = tempOrder;
 
                                     tempOrder = sellOrders[j];
                                     tempOrder.Volume = 0;
+                                    tempOrder.MatchState = "FullMatch";
                                     sellOrders[j] = tempOrder;
 
                                 }
-                                else
+                                else if (sellOrders[j].Volume > buyOrders[i].Volume)
                                 {
                                     BookOrder tempOrder = sellOrders[j];
                                     tempOrder.Volume -= buyOrders[i].Volume;
+                                    tempOrder.MatchState = "PartialMatch";
                                     sellOrders[j] = tempOrder;
 
                                     tempOrder = buyOrders[i];
                                     tempOrder.Volume = 0;
+                                    tempOrder.MatchState = "FullMatch";
+                                    buyOrders[i] = tempOrder;
+                                    break;
+                                }
+                                else if (sellOrders[j].Volume == buyOrders[i].Volume)
+                                {
+                                    BookOrder tempOrder = sellOrders[j];
+                                    tempOrder.Volume =0;
+                                    tempOrder.MatchState = "FullMatch";
+                                    sellOrders[j] = tempOrder;
+
+                                    tempOrder = buyOrders[i];
+                                    tempOrder.Volume = 0;
+                                    tempOrder.MatchState = "FullMatch";
                                     buyOrders[i] = tempOrder;
                                     break;
                                 }
@@ -75,7 +92,8 @@ namespace BookOrder_Test8.MatchMaker
 
 
 
-
+            //var TotalList = buyOrders.Concat(sellOrders);
+           buyOrders.AddRange(sellOrders);
 
             return buyOrders;
         }
